@@ -1,0 +1,30 @@
+<div class="book-list-container">
+  <div class="container">
+    <div *ngIf="books.length === 0" class="no-books">
+      <p>Aucun livre trouvé. Veuillez charger les livres ou affiner votre recherche.</p>
+    </div>
+
+    <div *ngIf="books.length > 0" class="books-grid">
+      <div *ngFor="let book of books" class="book-card" (click)="onBookClick(book)">
+        <div class="book-cover">
+          <img 
+            *ngIf="book.cover_id" 
+            [src]="getCoverImageUrl(book.cover_id)" 
+            [alt]="book.title"
+            class="cover-image"
+            (error)="$event.target.src='assets/no-cover.png'"
+          />
+          <div *ngIf="!book.cover_id" class="no-cover">
+            <p>Pas de couverture</p>
+          </div>
+        </div>
+        <div class="book-info">
+          <h3 class="book-title">{{ book.title }}</h3>
+          <p *ngIf="book.subtitle" class="book-subtitle">{{ book.subtitle }}</p>
+          <p class="book-year">{{ book.first_publish_year }}</p>
+          <p class="book-editions">{{ book.edition_count }} édition(s)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
