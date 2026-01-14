@@ -1,0 +1,8 @@
+node_modules/
+dist/
+*.tar.gz
+*.zip
+.angular/
+**/.angular/
+open-library-app/.angular/
+archive/
