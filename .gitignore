@@ -6,3 +6,11 @@ dist/
 **/.angular/
 open-library-app/.angular/
 archive/
+
+# Documentation
+*.md
+*.txt
+doc/
+docs/
+documentation/
+**/*.md
